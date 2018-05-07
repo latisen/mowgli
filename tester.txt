@@ -1,0 +1,19 @@
+Robot.readSensors();
+cutting.startCutting();
+if(sensing.obstacleFront() == true){
+  move.moveBackward();
+}
+Robot.perimeter.getMagnitude(0);
+Robot.perimeter.getMagnitude(1);
+//Check sensor 1 inside
+if(Robot.checkInside(0) == false){
+    move.GoBackwardUntilInside(Robot.checkInside(0));
+}
+//Check sensor 2 inside
+if(Robot.checkInside(1) == false){
+    move.GoBackwardUntilInside(Robot.checkInside(1));
+}
+
+if(Robot.checkInside(0) == true && Robot.checkInside(1) == true && sensing.obstacleFront() == false){
+    move.moveForward();
+}
